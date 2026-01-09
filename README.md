@@ -43,12 +43,12 @@ This work investigates:
 
 Propagate, generate, and sum equations:
 
-▶ Pi = Ai ⊕ Bi
-▶ Gi = Ai · Bi
+ Pi = Ai ⊕ Bi, 
+ Gi = Ai · Bi
 
 Unified carry formulation:
 
-▶ C(n+1) = Gn + Pn·Cn
+ C(n+1) = Gn + Pn·Cn
 
 All carry equations are implemented using **AOI21 logic**.
 
@@ -145,14 +145,10 @@ Area is estimated using **transistor count**, a standard pre-layout metric.
 ## ⚡ Power–Delay Metrics
 
 * **Power–Delay Product (PDP)**
-  [
-  \text{PDP} = P \times D
-  ]
+  PDP=P×D
 
 * **Energy–Delay Product (EDP)**
-  [
-  \text{EDP} = P \times D^2
-  ]
+  EDP=P×D^2
 
 These metrics enable **fair energy efficiency comparison** across architectures.
 
