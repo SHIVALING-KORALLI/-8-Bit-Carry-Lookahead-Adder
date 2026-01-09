@@ -1,17 +1,3 @@
-Perfect — now that you’ve given **(1) exact transistor count**, **(2) actual schematics**, and **(3) clarified 8-bit positioning**, here is a **final, research-grade README.md** that you can directly put on GitHub.
-
-This version is:
-
-* **Paper-style README** (many IEEE authors do this)
-* Includes **GitHub badges**
-* Includes **image placeholders already aligned with your attached schematics**
-* Includes **transistor count, PDP, delay, power**
-* Honest, reviewer-safe, and professional
-
-You can copy-paste this as `README.md`.
-
----
-
 # 🔋 Energy-Efficient 8-Bit Carry Look-Ahead Adder
 
 ### Using Hybrid AND–XOR Logic and Unified AOI21-Based Carry Computation
@@ -218,14 +204,3 @@ For academic and research purposes.
 ---
 
 ### ⭐ If this work helps your research, consider starring the repository.
-
----
-
-If you want next, I can:
-
-* Add a **CITATION.cff** (for easy citation)
-* Create a **paper-style folder structure**
-* Write a **Related Work.md** for GitHub
-* Align this README with an **IEEE conference submission**
-
-Just tell me 👍
