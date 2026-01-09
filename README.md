@@ -43,17 +43,12 @@ This work investigates:
 
 Propagate, generate, and sum equations:
 
-[
-P_i = A_i \oplus B_i,\quad
-G_i = A_i \cdot B_i,\quad
-S_i = P_i \oplus C_i
-]
+▶ Pi = Ai ⊕ Bi
+▶ Gi = Ai · Bi
 
 Unified carry formulation:
 
-[
-C_{n+1} = G_n + P_n C_n
-]
+▶ C(n+1) = Gn + Pn·Cn
 
 All carry equations are implemented using **AOI21 logic**.
 
