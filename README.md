@@ -1,135 +1,168 @@
-# 🔋 Energy-Efficient 8-Bit Carry Look-Ahead Adder
+---
 
-### Using Hybrid AND–XOR Logic and Unified AOI21-Based Carry Computation
+# 🔋 Low-Power 8-Bit Carry Look-Ahead Adder Using Hybrid AND–XOR Logic and Unified AOI21 Carry Computation
 
-![Technology](https://img.shields.io/badge/Technology-45nm%20CMOS-blue)
-![Tool](https://img.shields.io/badge/EDA-Cadence%20Virtuoso-orange)
-![Adder](https://img.shields.io/badge/Adder-CLA-green)
-![Logic](https://img.shields.io/badge/Logic-Hybrid%20%7C%20AOI21-red)
-![Status](https://img.shields.io/badge/Status-Research%20Prototype-yellow)
+![CMOS](https://img.shields.io/badge/CMOS-45nm-blue)
+![Cadence](https://img.shields.io/badge/EDA-Cadence%20Virtuoso-orange)
+![Adder](https://img.shields.io/badge/Arithmetic-CLA-green)
+![Status](https://img.shields.io/badge/Status-Complete-success)
+![License](https://img.shields.io/badge/License-MIT-lightgrey)
 
 ---
 
 ## 📌 Overview
 
-This repository presents the **design, implementation, and evaluation of an energy-efficient 8-bit Carry Look-Ahead Adder (CLA)** optimized at the **gate and transistor level**.
-The proposed design employs:
+This repository presents a **low-power 8-bit Carry Look-Ahead Adder (CLA)** designed in **45-nm CMOS** using **Cadence Virtuoso**.
+The proposed design is built using a **hierarchical cascade of two optimized 4-bit CLA blocks**, where the **inter-block carry (C4)** is computed using a **fully factored AOI21-only formulation**.
 
-* **Hybrid AND–XOR logic** for propagate and generate computation
-* **Unified AOI21-based carry realization** for all carry equations
-* **Partial true look-ahead optimization for C4**
-* **Cascaded 8-bit CLA construction using optimized 4-bit blocks**
+Unlike conventional CLA implementations using AND–OR logic trees, this work employs:
 
-All circuits are implemented and simulated in **Cadence Virtuoso using 45-nm CMOS technology**.
+* **Hybrid AND–XOR logic** for propagate/generate computation
+* **Unified AOI21 logic** for all carry equations
+* **Optimized C4 generation** to reduce inter-block carry delay
 
----
-
-## 🎯 Motivation
-
-While CLAs are widely used to reduce carry propagation delay, conventional implementations suffer from **high power dissipation** due to complex carry logic and large fan-in gates. Recent architectural solutions focus on block sizing and hierarchy, but **gate-level and logic-style optimization of CLA blocks remains under-explored**.
-
-This work investigates:
-
-* Power reduction using **hybrid logic styles**
-* Logic depth reduction using **AOI21-only carry formulation**
-* The effect of **partial true look-ahead** on critical carry paths
-* Why **inter-block carry dominates** in cascaded CLA architectures
+This approach achieves **significant power reduction** while maintaining competitive delay, making it suitable for low-power arithmetic units.
 
 ---
 
-## 🏗️ Architecture Description
+## 🧠 Design Motivation
 
-### 🔹 Bit-Level CLA (4-Bit Building Block)
+### Why AOI21 for Carry Logic?
 
-Propagate, generate, and sum equations:
+Carry computation dominates delay and power in CLA structures.
+Through extensive evaluation, it was observed that:
 
- Pi = Ai ⊕ Bi, 
- Gi = Ai · Bi
+* AND–OR based carry trees introduce:
 
-Unified carry formulation:
+  * higher logic depth
+  * more internal nodes
+  * increased switching activity
+* AOI21 gates provide:
 
- C(n+1) = Gn + Pn·Cn
+  * compact transistor realization
+  * implicit inversion (reducing extra inverters)
+  * lower parasitic capacitance
+
+Hence, **all carry equations are mapped to AOI21 gates**, including the optimized inter-block carry **C4**.
+
+---
+
+## 🧮 Logic Equations (GitHub-Safe Format)
+
+### Propagate, Generate, and Sum
+
+```
+Pi = Ai ⊕ Bi
+Gi = Ai · Bi
+Si = Pi ⊕ Ci
+```
+
+### Unified Carry Equation
+
+```
+C(n+1) = Gn + (Pn · Cn)
+```
 
 All carry equations are implemented using **AOI21 logic**.
 
 ---
 
-### 🔹 Hybrid Logic Style
+## 🔬 Research Evolution (Step-by-Step)
 
-* **Hybrid AND gates** used for generate (G)
-* **Hybrid XOR gates** used for propagate (P) and sum (S)
-* Static CMOS preserved where signal integrity is critical
+### 1️⃣ Baseline 4-Bit CLA (Reference Implementation)
 
-This reduces:
+* Conventional carry look-ahead equations
+* AND–OR based logic
+* High switching activity
 
-* Switching activity
-* Transistor count
-* Internal node capacitance
+**Results:**
 
----
-
-### 🔹 Optimized C4 Carry Computation
-
-The most significant carry of the 4-bit block (C4) is computed using **factored true look-ahead**, reducing the local critical path delay.
+* Delay: ~63 ps
+* Power: ~41.68 µW
 
 ---
 
-## 🔧 Gate-Level Implementations
+### 2️⃣ Hybrid Logic 4-Bit CLA
 
-### AOI21-Based Carry Generation
+* Hybrid AND and XOR gates for P/G generation
+* AOI21 used for carry
 
-All carry outputs are realized using a unified AOI21 structure.
+**Results:**
 
-![AOI21 Carry Logic](AOI21.png)
+* Delay: ~77.49 ps
+* Power: ~11.13 µW
 
----
-
-### Hybrid AND Gate (Generate Logic)
-
-![Hybrid AND Gate](hybrid%20AND2.png)
+➡ ~73% power reduction with modest delay penalty.
 
 ---
 
-### Hybrid XOR Gate (Propagate & Sum Logic)
+### 3️⃣ Optimized C4 Carry Computation (Proposed 4-Bit CLA)
 
-![Hybrid XOR Gate](hybrid%20XOR2.png)
+Instead of computing C4 through chained carry propagation, C4 is computed using a **fully factored AOI21 formulation** directly from P and G signals.
 
----
+📌 **Reason for AOI21-only C4:**
 
-### Optimized 4-Bit CLA Block
+* AOI21 implementation showed **lower delay and power** compared to AND–OR realization.
+* Reduced logic depth for inter-block carry.
 
-![Optimized 4-bit CLA](proposed_4-Bit_CLA.png)
+#### 📷 Optimized C4 Carry Logic
 
----
+![C4 Optimized](C4_Optimized.png)
 
-## 📊 Performance Results (45-nm CMOS)
+**Results (4-bit):**
 
-### 🔸 4-Bit CLA Comparison
-
-| Design Variant              | Delay (ps) | Avg Power (µW) | PDP (fJ) |
-| --------------------------- | ---------- | -------------- | -------- |
-| Conventional CLA (AOI21)    | 63.03      | 41.68          | 2.63     |
-| Hybrid P/G + AOI21 Carry    | 77.49      | 11.13          | 0.86     |
-| **Optimized C4 (Proposed)** | **42.54**  | **16.94**      | **0.72** |
+* Delay: ~42.54 ps
+* Power: ~16.94 µW
 
 ---
 
-### 🔸 8-Bit Cascaded CLA (Using Optimized 4-Bit Blocks)
+## 🧱 Hierarchical 8-Bit CLA Construction
 
-| Metric           | Value     |
-| ---------------- | --------- |
-| Worst-Case Delay | ~77.49 ps |
-| Average Power    | ~46.37 µW |
-| PDP              | ~3.59 fJ  |
+### Why NOT Direct 8-Bit CLA?
 
-📌 **Observation:**
-Despite fast C4 computation, **inter-block carry propagation dominates**, motivating hierarchical block-level CLA in future work.
+A flat 8-bit CLA was implemented for comparison.
+
+#### 📷 Direct 8-Bit CLA
+
+![Direct 8-bit CLA](AOI21_CLA8-Bit.png)
+
+**Results:**
+
+* Delay: ~160.8 ps
+* Power: ~44.49 µW
+* Transistors: **200**
+
+Although correct functionally, delay was high due to:
+
+* Long carry logic fan-in
+* Increased parasitics
 
 ---
 
-## 🧮 Transistor Count (Area Estimation)
+### ✅ Proposed Solution: Cascaded 4-Bit CLA with Optimized C4
 
-Area is estimated using **transistor count**, a standard pre-layout metric.
+Two optimized 4-bit CLAs are cascaded, where:
+
+* Lower block computes C0–C3
+* **C4 is generated independently using AOI21**
+* Upper block starts computation in parallel once C4 is available
+
+#### 📷 Final Proposed 8-Bit CLA
+
+![Proposed 8-bit CLA](proposed_8-Bit_CLA.png)
+
+**Results (8-bit):**
+
+* Delay: **~77 ps**
+* Power: **~46 µW**
+* PDP ≈ **3.54 fJ**
+* Inter-block carry delay minimized
+
+---
+
+## 🔢 Transistor Count Analysis
+
+### Proposed Optimized 4-Bit CLA
 
 | Gate Type  | Transistors | Instances | Total   |
 | ---------- | ----------- | --------- | ------- |
@@ -138,60 +171,59 @@ Area is estimated using **transistor count**, a standard pre-layout metric.
 | Hybrid XOR | 6           | 8         | 48      |
 | **Total**  | —           | —         | **124** |
 
-📌 This demonstrates a **compact implementation** compared to conventional static CMOS CLA designs.
+---
+
+### Direct 8-Bit CLA (Flat)
+
+| Gate Type  | Transistors | Instances | Total   |
+| ---------- | ----------- | --------- | ------- |
+| AOI21      | 8           | 8         | 64      |
+| Hybrid AND | 5           | 8         | 40      |
+| Hybrid XOR | 6           | 16        | 96      |
+| **Total**  | —           | —         | **200** |
+
+➡ Despite higher transistor count in direct 8-bit CLA, **delay is significantly worse**, validating the hierarchical approach.
 
 ---
 
-## ⚡ Power–Delay Metrics
+## 📈 Simulation Results
 
-* **Power–Delay Product (PDP)**
-  PDP=P×D
+📌 **Waveforms and testbench simulations** will be uploaded here:
 
-* **Energy–Delay Product (EDP)**
-  EDP=P×D^2
+```
+/simulation/
+ ├── proposed_8bit_waveforms.pdf
+ ├── testbench_8bit_cla.scs
+ └── delay_power_summary.txt
+```
 
-These metrics enable **fair energy efficiency comparison** across architectures.
-
----
-
-## 🧪 Simulation Setup
-
-* **EDA Tool:** Cadence Virtuoso
-* **Technology:** 45-nm CMOS (BSIM models)
-* **Simulation Type:** Post-schematic
-* **Input Vectors:** Worst-case switching
-* **Measured Paths:** Cin → Cout (carry critical path)
+(Repository will auto-update once files are added.)
 
 ---
 
-## 🔍 Limitations & Future Work
+## 🏆 Key Contributions
 
-* Full post-layout parasitic extraction not performed
-* Area estimated using transistor count
-* Future extensions include:
-
-  * Block-level (hierarchical) CLA
-  * Monte-Carlo and corner analysis
-  * Voltage scaling
-  * Integration into NCLA / prefix architectures
+* Unified AOI21-based carry computation for all CLA stages
+* Hybrid AND–XOR logic for low-power P/G generation
+* Optimized C4 carry enabling parallel 4-bit block operation
+* Demonstration that **hierarchical CLA outperforms flat CLA**
+* Complete transistor-level design in 45-nm CMOS
 
 ---
 
-## 📚 Intended Use
+## 🔮 Future Work
 
-This repository is intended for:
-
-* Academic and graduate-level VLSI research
-* Low-power arithmetic circuit exploration
-* CLA building-block optimization studies
-
----
-
-## 🧑‍🔬 Author
-
-Designed and analyzed using **Cadence Virtuoso (45-nm CMOS)**
-For academic and research purposes.
+* Post-layout parasitic extraction (PEX)
+* Extension to 16-bit and 32-bit CLA
+* Integration into NCLA or Kogge-Stone hybrids
+* Voltage scaling analysis
 
 ---
 
-### ⭐ If this work helps your research, consider starring the repository.
+## 📜 License
+
+MIT License — free to use for academic and research purposes.
+
+---
+
+
