@@ -254,6 +254,8 @@ These metrics are used for **fair energy-efficiency comparison**.
 
 [14] R. E. Ladner and M. J. Fischer, “Parallel Prefix Computation,” J. ACM, vol. 27, no. 4, pp. 831–838, Oct. 1980.
 
+---
+
 ## 🔍 Limitations & Future Work
 
 * No post-layout PEX performed
