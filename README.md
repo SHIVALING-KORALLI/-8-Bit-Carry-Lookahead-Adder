@@ -224,6 +224,36 @@ These metrics are used for **fair energy-efficiency comparison**.
 
 ---
 
+3️⃣ **References**
+
+[1] R. P. Brent and H. T. Kung, “A Regular Layout for Parallel Adders,” IEEE Trans. Computers, vol. C-31, no. 3, pp. 260–264, Mar. 1982.
+
+[2] K. Hwang, Computer Arithmetic: Principles, Architecture, and Design. New York, NY, USA: Wiley, 1979.
+
+[3] A. P. Chandrakasan, S. Sheng, and R. W. Brodersen, “Low-Power CMOS Digital Design,” IEEE J. Solid-State Circuits, vol. 27, no. 4, pp. 473–484, Apr. 1992.
+
+[4] M. Abdullah and D. Al-Khalili, “Low-Power Carry Look-Ahead Adder Using Logic Restructuring,” IEEE Trans. Circuits Syst. II, vol. 52, no. 8, pp. 463–467, Aug. 2005.
+
+[5] M. Alioto and G. Palumbo, “Power Estimation in Digital CMOS Circuits: Techniques and Tools,” IEEE Circuits Syst. Mag., vol. 2, no. 2, pp. 29–44, 2002.
+
+[6] J. M. Rabaey, A. Chandrakasan, and B. Nikolić, Digital Integrated Circuits, 2nd ed. Upper Saddle River, NJ, USA: Prentice-Hall, 2003.
+
+[7] A. M. Shams, T. K. Darwish, and M. A. Bayoumi, “Performance Analysis of Low-Power 1-Bit CMOS Full Adder Cells,” IEEE Trans. Very Large Scale Integr. (VLSI) Syst., vol. 10, no. 1, pp. 20–29, Feb. 2002.
+
+[8] M. Hasan, M. S. Islam, and M. R. Ahmed, “Performance Improvement of 4-Bit Static CMOS Carry Look-Ahead Adder Using Modified Carry Propagate and Generate Circuits,” IEEE Region 10 Conf. (TENCON), 2019.
+
+[9] N. H. E. Weste and D. Harris, CMOS VLSI Design: A Circuits and Systems Perspective, 4th ed. Boston, MA, USA: Addison-Wesley, 2011.
+
+[10] Y. Suzuki et al., “A 1.5-ns 32-b CMOS ALU in Double Pass-Transistor Logic,” IEEE J. Solid-State Circuits, vol. 28, no. 11, pp. 1145–1151, Nov. 1993.
+
+[11] M. Alioto, “Energy-Quality Scalable Adders,” IEEE Trans. Circuits Syst. I, vol. 57, no. 12, pp. 3161–3170, Dec. 2010.
+
+[12] P. Balasubramanian and S. Maskell, “A New Carry Look-Ahead Adder Architecture Optimized for Speed and Energy,” IEEE Trans. Very Large Scale Integr. (VLSI) Syst., vol. 28, no. 11, pp. 2486–2495, Nov. 2020.
+
+[13] P. M. Kogge and H. S. Stone, “A Parallel Algorithm for the Efficient Solution of a General Class of Recurrence Equations,” IEEE Trans. Computers, vol. C-22, no. 8, pp. 786–793, Aug. 1973.
+
+[14] R. E. Ladner and M. J. Fischer, “Parallel Prefix Computation,” J. ACM, vol. 27, no. 4, pp. 831–838, Oct. 1980.
+
 ## 🔍 Limitations & Future Work
 
 * No post-layout PEX performed
