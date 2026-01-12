@@ -1,6 +1,6 @@
 ---
 
-# 🔋 Energy-Efficient 8-Bit Carry Look-Ahead Adder
+# 🔋 Low-Power 8-Bit Carry Look-Ahead Adder Using Hybrid AND–XOR Logic and Unified AOI21 Carry Computation
 
 ### Using Hybrid AND–XOR Logic and Unified AOI21-Based Carry Computation
 
@@ -202,14 +202,25 @@ These metrics are used for **fair energy-efficiency comparison**.
 * Simulation Type: Transistor-level (post-schematic)
 * Critical Path: Cin → Cout
 
-📂 **Waveforms & testbench files will be uploaded here:**
+📂 **testbench & Waveforms:**
 
-```
-/simulation/
- ├── proposed_8bit_waveforms.pdf
- ├── cascaded_cla_testbench.scs
- └── delay_power_report.txt
-```
+![Hybrid XOR](TB_8-Bit_CLA.png)
+
+---
+
+![AOI21 Gate](a0-b2.png)
+
+---
+
+![Hybrid AND](b3-a7.png)
+
+---
+
+![Hybrid XOR](a6-s2.png)
+
+---
+
+![Hybrid AND](s3-c4.png)
 
 ---
 
