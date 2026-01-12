@@ -98,7 +98,7 @@ All carry outputs are realized using a unified AOI21 structure.
 
 ### Optimized 4-Bit CLA Block
 
-![Optimized 4-bit CLA](Optimized%20CLA.png)
+![Optimized 4-bit CLA](proposed_4-Bit_CLA.png)
 
 ---
 
