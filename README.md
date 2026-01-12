@@ -103,7 +103,7 @@ This approach showed **lower delay and power** compared to AND–OR based realiz
 
 ### Optimized 4-Bit CLA Block
 
-![Optimized 4-Bit CLA](Optimized%20CLA.png)
+![Optimized 4-Bit CLA](proposed_4-Bit_CLA.png)
 
 ---
 
