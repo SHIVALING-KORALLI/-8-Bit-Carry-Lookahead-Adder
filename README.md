@@ -250,10 +250,3 @@ These metrics are used for **fair energy-efficiency comparison**.
 ---
 
 
-
-* Convert this into **IEEE paper sections**
-* Create a **Related Work.md**
-* Prepare **conference-ready figures**
-* Help select **IEEE conference with high acceptance probability**
-
-Just say 👍
