@@ -224,6 +224,10 @@ These metrics are used for **fair energy-efficiency comparison**.
 
 ---
 
+![Hybrid AND](a0-b0.png)
+
+---
+
 3️⃣ **References**
 
 [1] R. P. Brent and H. T. Kung, “A Regular Layout for Parallel Adders,” IEEE Trans. Computers, vol. C-31, no. 3, pp. 260–264, Mar. 1982.
