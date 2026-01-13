@@ -212,11 +212,11 @@ These metrics are used for **fair energy-efficiency comparison**.
 
 ---
 
-![Hybrid AND](b3-a7.png)
+![Hybrid XOR](a6-s2.png)
 
 ---
 
-![Hybrid XOR](a6-s2.png)
+![Hybrid AND](b3-a7.png)
 
 ---
 
